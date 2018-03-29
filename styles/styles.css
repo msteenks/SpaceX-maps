@@ -1,0 +1,63 @@
+html {
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+*: {
+	box-sizing: inherit;
+}
+
+body {
+  /* background-image: url("images/day.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Orbitron', sans-serif; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "map";
+}
+
+#map {
+	grid-area: map;
+	margin: 0 auto;
+	margin-top: 4%;
+	width: 80vw;
+	height: 80vh;
+	color: #111;
+	box-shadow: 10px 10px 50px 10px lightgrey;
+}
+
+#weather {
+	background-color: #222222;
+	width: 60px;
+	padding: 6px;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+
+@media only screen and (min-width: 0px) { /* mobiel */
+
+
+}
+
+@media only screen and (min-width: 601px) { /* tablet */
+
+
+}
+
+@media only screen and (min-width: 1020px) { /* laptop */
+
+
+}
+
+@media only screen and (min-width: 1620px) { /* groot scherm */
+
+
+}
