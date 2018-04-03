@@ -182,7 +182,7 @@ function initMap() {
     animation: google.maps.Animation.DROP,
     icon: foodIcon
   });
-  landing.addListener('mouseover', function() {
+  landing.addListener('click', function() {
     infowindow.open(map, landing);
     document.getElementById('weather').style.display = "block";
   });
@@ -191,12 +191,6 @@ function initMap() {
   });
   bar.addListener('mouseout', function() {
     document.getElementById('beer').style.display = "none";
-  });
-  // bar.addListener('mouseover', function() {
-  //   infoBier.open(map, bar);
-  // });
-  bar.addListener('mouseout', function() {
-    infoBier.close(map, bar);
   });
   landing.addListener('click', function() {
     if (landing.getAnimation() !== null) {
