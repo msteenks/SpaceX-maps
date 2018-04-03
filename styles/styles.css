@@ -8,6 +8,7 @@ html {
 }
 
 body {
+	font-family: 'Montserrat', sans-serif;
 	background-image: url("images/background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -23,20 +24,20 @@ header {
 	text-align: center;
 	font-size: 100px;
 	width: 100%;
-	height: 110px;
+	height: 120px;
 	margin-left: -10px;
 	position: absolute;
 	color: #FFFFFF;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 99;
-	margin-top: -10%;
+	margin-top: -12%;
 }
 
 #logo {
 	display: block;
 	margin: auto;
 	background-image: url("images/logo_spacex.png");
-  background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	width: 300px;
@@ -45,6 +46,17 @@ header {
 
 #map {
 	position: relative;
+}
+
+#floating-panel {
+	position: absolute;
+	bottom: 20px;
+	left: 9.5%;
+	z-index: 5;
+	border: none;
+	text-align: left;
+	color: #FFFFFF;
+	padding-left: 10px;
 }
 
 #googlemap {
@@ -59,20 +71,52 @@ header {
 
 @media only screen and (min-width: 0px) { /* mobiel */
 
+	#googlemap {
+		width: 90vw;
+		height: 70vh;
+	}
+
+	#floating-panel {
+		left: 3%;
+	}
 
 }
 
 @media only screen and (min-width: 601px) { /* tablet */
 
+	#googlemap {
+		width: 90vw;
+		height: 75vh;
+	}
+
+	#floating-panel {
+		left: 4%;
+	}
 
 }
 
 @media only screen and (min-width: 1020px) { /* laptop */
 
+	#googlemap {
+		width: 80vw;
+		height: 80vh;
+	}
+
+	#floating-panel {
+		left: 9.5%;
+	}
 
 }
 
 @media only screen and (min-width: 1620px) { /* groot scherm */
 
+	#googlemap {
+		width: 80vw;
+		height: 80vh;
+	}
+
+	#floating-panel {
+		left: 9.5%;
+	}
 
 }

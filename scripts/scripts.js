@@ -12,6 +12,8 @@ function initMap() {
   var sonnys = {lat: 28.5583445, lng: -80.839898};
   var theHeroesGrill = {lat: 28.6081236, lng: -80.81794680000002};
   var ihop = {lat: 28.5492859, lng: -80.85461299999997};
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var directionsService = new google.maps.DirectionsService;
   var map = new google.maps.Map(document.getElementById('googlemap'), {
     center: kennedy,
     zoom: 12,
@@ -100,10 +102,6 @@ function initMap() {
   var infowindow = new google.maps.InfoWindow({
     content: contentString
   });
-  // var bierBox = '<h2 id="content">BEER!</h2>';
-  // var infoBier = new google.maps.InfoWindow({
-  //   content: bierBox
-  // });
   var barIcon = {
     url: "./styles/images/beer.png",
     scaledSize: new google.maps.Size(40, 40), // scaled size
@@ -199,8 +197,45 @@ function initMap() {
       landing.setAnimation(google.maps.Animation.BOUNCE);
     }
   });
+
+  directionsDisplay.setMap(map);
+
+  calculateAndDisplayRoute(directionsService, directionsDisplay);
+  document.getElementById('mode').addEventListener('change', function() {
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  });
+  directionsDisplay.addListener('directions_changed', function() {
+    computeTotalDistance(directionsDisplay.getDirections());
+  });
 }
 
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  var selectedMode = document.getElementById('mode').value;
+  directionsService.route({
+    origin: {lat: 28.61688335, lng: -80.69412774},  // Kennedy Lading Strip.
+    destination: {lat: 28.5728722, lng: -80.6489808},  // Kennedy Space Center.
+    // Note that Javascript allows us to access the constant
+    // using square brackets and a string value as its
+    // "property."
+    travelMode: google.maps.TravelMode[selectedMode]
+  }, function(response, status) {
+    if (status == 'OK') {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  for (var i = 0; i < myroute.legs.length; i++) {
+    total += myroute.legs[i].distance.value;
+  }
+  total = total / 1000;
+  document.getElementById('total').innerHTML = total + ' km';
+}
 
 
 function getAPIdata() {

@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-		<title>SpaceX-maps</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link type="text/css" href="styles/styles.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
+    <title>SpaceX-maps</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" href="styles/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
+
     <header>
       <div id="logo"></div>
     </header>
+
     <div id="map">
+
+      <div id="floating-panel">
+      <b>Mode of Travel: </b>
+      <select id="mode">
+        <option value="NOROUTE">-</option>
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Bicycling</option>
+      </select>
+      <p>Total Distance: <span id="total"></span></p>
+      </div>
+
       <div id="googlemap"></div>
       <article id="weather" style="display:none"></article>
+
     </div>
     <div id="beer" style="display:none">TIME FOR BEER !!!</div>
 
-		<script type="text/javascript" src="scripts/scripts.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlT90sO7lefd6idVrzhgJW9ZgvuyC4bgc&callback=initMap">
-    </script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlT90sO7lefd6idVrzhgJW9ZgvuyC4bgc&callback=initMap"></script>
   </body>
 </html>
